@@ -21,9 +21,9 @@ Let's work through these evaluation metrics and try to understand what each metr
 
 ### Precision and Recall
 
-**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise our predictions are, while **_Recall_** tells us what percentage of the class(es) we're interested in were actually captured by the model. 
+**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise our predictions are, while **_Recall_** tells us what percentage of the class(es) we're interested in were actually captured by the model.
 
-![](./images/Precisionrecall.png)
+![](Precisionrecall.png)
 
 #### Precision
 
@@ -41,7 +41,7 @@ Note that a high precision score can be a bit misleading.  For instance, let's s
 
 The following formula shows how we can use information found in a Confusion Matrix to calculate the recall of a model:
 
-$$Recall = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}}$$ 
+$$Recall = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}}$$
 
 Following the same disease analogy, recall allows us to ask:
 
@@ -51,11 +51,11 @@ Note that recall can be a bit of a tricky statistic, because improving our recal
 
 #### The Relationship Between Precision and Recall
 
-As you may have guessed, Precision and Recall have an inverse relationship.  As our recall goes up, our precision will go down, and vice versa. If this doesn't seem intuitive, let's examine this through the lens of our disease analogy. 
+As you may have guessed, Precision and Recall have an inverse relationship.  As our recall goes up, our precision will go down, and vice versa. If this doesn't seem intuitive, let's examine this through the lens of our disease analogy.
 
-A doctor that is overly obsessed with recall will have a very low threshold for declaring someone as sick, because they are most worried about sick patients get by them. Their precision will be quite low, because they classify almost everyone as sick, and don't care when they're wrong--they only care about making sure that sick people are identified as sick. 
+A doctor that is overly obsessed with recall will have a very low threshold for declaring someone as sick, because they are most worried about sick patients get by them. Their precision will be quite low, because they classify almost everyone as sick, and don't care when they're wrong--they only care about making sure that sick people are identified as sick.
 
-A doctor that is overly obsessed with precision will have a very high threshold for declaring someone as sick, because they only declare someone as sick when they are absolutely sure that they will be correct if they declare a person as sick. Although their precision will be very high, their recall will be incredibly low, because a lot of people that are sick but don't meet the doctor's threshold will be incorrectly classified as healthy. 
+A doctor that is overly obsessed with precision will have a very high threshold for declaring someone as sick, because they only declare someone as sick when they are absolutely sure that they will be correct if they declare a person as sick. Although their precision will be very high, their recall will be incredibly low, because a lot of people that are sick but don't meet the doctor's threshold will be incorrectly classified as healthy.
 
 #### Which Metric is Better?
 
@@ -73,25 +73,25 @@ The two most informative metrics that are often cited to describe the performanc
 
 $$Accuracy = \frac{\text{Number of True Positives + True Negatives}}{\text{Total Observations}}$$
 
-Accuracy is useful because it allows us to measure the total number of predictions our model got right, including both **_True Positives_** and **_True Negatives_**. 
+Accuracy is useful because it allows us to measure the total number of predictions our model got right, including both **_True Positives_** and **_True Negatives_**.
 
 Sticking with our same analogy, Accuracy allows us to answer:
 
 "Out of all the predictions our model made, what percentage were correct?"
 
-Accuracy is the most common metric for classification. It provides a solid holistic view of the overall performance of our model. 
+Accuracy is the most common metric for classification. It provides a solid holistic view of the overall performance of our model.
 
 #### F1-Score
 
-The F1-Score is a bit more tricky, but also more informative. F1-Score represents the **_Harmonic Mean of Precision and Recall_**.  In short, this means that the F1-Score cannot be high without both precision and recall also being high. When a model's F1-Score is high, you know that your model is doing well all around. 
+The F1-Score is a bit more tricky, but also more informative. F1-Score represents the **_Harmonic Mean of Precision and Recall_**.  In short, this means that the F1-Score cannot be high without both precision and recall also being high. When a model's F1-Score is high, you know that your model is doing well all around.
 
 The formula for F1-Score is:
 
 $$F1-Score = 2\ \frac{Precision\ x\ Recall}{Precision + Recall}$$
 
-To demonstrate the effectiveness of F1-Score, let's plug in some numbers and compare F1-Score with a regular arithmetic average of precision and recall. 
+To demonstrate the effectiveness of F1-Score, let's plug in some numbers and compare F1-Score with a regular arithmetic average of precision and recall.
 
-Let's assume that our model has 98% recall, and 6% precision. 
+Let's assume that our model has 98% recall, and 6% precision.
 
 If we just take the arithmetic mean of the two, we get $\frac{0.98 + 0.06}{2} = \frac{1.04}{2} = 0.52 $
 
@@ -99,11 +99,11 @@ However, if we plug these numbers into our F1-Score formula:
 
 $$F1 = 2 \frac{0.98 * 0.06}{0.98 + 0.06} = 2 \frac{0.0588}{1.04} = 2(0.061152) = 0.122304$$ or 12.2%!
 
-As we can see, F1-score penalizes models heavily if it skews too hard towards either precision or recall. For this reason, F1-score is generally the  most used metric for describing the performance of a model. 
+As we can see, F1-score penalizes models heavily if it skews too hard towards either precision or recall. For this reason, F1-score is generally the  most used metric for describing the performance of a model.
 
 ### Which Metric to Use?
 
-The metrics that are most important to a project will often be dependent on the business use case or goals for that model. This is why it's **_very important_** to understand why you're doing what you're doing, and how your model will be used in the real world! Otherwise, you may optimize your model for the wrong metric! 
+The metrics that are most important to a project will often be dependent on the business use case or goals for that model. This is why it's **_very important_** to understand why you're doing what you're doing, and how your model will be used in the real world! Otherwise, you may optimize your model for the wrong metric!
 
 In general, it is worth noting that it's a good idea to calculate any and all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best peformer for each metric:
 
