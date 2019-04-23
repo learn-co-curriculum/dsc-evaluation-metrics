@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lesson, we'll learn about common **_Evaluation Metrics_** used to quantify the performance of classifiers!
+In this lesson, you'll learn about common **_Evaluation Metrics_** used to quantify the performance of classifiers!
 
 ## Objectives
 
@@ -15,25 +15,25 @@ You will be able to:
 
 ## Evaluation Metrics For Classification
 
-Now that we've started discussing classification, it's time to examine comparing our models to each other and choosing models of best fit. Previously in regression, we've been predicting values so it made sense to discuss error as a distance of how far off our estimates were. However, In classifying a binary variable we are either correct or incorrect. As a result, we tend to deconstruct this as how many false positives versus false negatives we come across.  In particular, we examine a few different specific measurements when evaluating the performance of a classification algorithm.  
+Now that we've started discussing classification, it's time to examine comparing models to one other and choosing the models that have the best fit. Previously in regression, you were predicting values so it made sense to discuss error as a distance of how far off the estimates were from the actual values. However, in classifying a binary variable you are either correct or incorrect. As a result, we tend to deconstruct this as how many false positives versus false negatives there are in a model.  In particular, there are a few different specific measurements when evaluating the performance of a classification algorithm.  
 
 Let's work through these evaluation metrics and try to understand what each metric tells us.
 
 ## Precision and Recall
 
-**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise our predictions are, while **_Recall_** tells us what percentage of the class(es) we're interested in were actually captured by the model. 
+**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the class(es) we're interested in were actually captured by the model. 
 
-![](Precisionrecall.png)
+<img src="./images/Precisionrecall.png">
 
 ### Precision
 
-The following formula shows how we can use information found in a Confusion Matrix to calculate the precision of a model:
+The following formula shows how to use information found in a Confusion Matrix to calculate the precision of a model:
 
 $$Precision = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}}$$
 
 To reuse a previous analogy of a model that predicts whether or not a person has a certain disease, precision allows us to answer the following question:
 
-"Out of all the times our model said someone had a disease, how many times did the patient in question actually have the disease?"
+"Out of all the times the model said someone had a disease, how many times did the patient in question actually have the disease?"
 
 Note that a high precision score can be a bit misleading.  For instance, let's say we take a model and train it to make predictions on a sample of 10,000 patients. This model predicts that 6000 patients have the disease, when in reality, only 5500 have the disease.  This model would have a precision of 91.6%.  Then, we create another model. This model flips a coin, and classifies the patient as sick if the coin lands on heads.  Now, let's assume we create a second model that only predicts that a person is sick when it's incredibly obvious.  Out of 10,000 patients, this model only predicts that 5 people in the entire population are sick.  However, each of those 5 times, it is correct.  Model 2 would have a precision score of 100%, even though it missed 5,495 cases where the patient actually had the disease! In this way, more conservative models can have a high precision score, but this doesn't necessarily mean that they are the _best performing_ model!
 
@@ -73,7 +73,7 @@ The two most informative metrics that are often cited to describe the performanc
 
 $$Accuracy = \frac{\text{Number of True Positives + True Negatives}}{\text{Total Observations}}$$
 
-Accuracy is useful because it allows us to measure the total number of predictions our model got right, including both **_True Positives_** and **_True Negatives_**. 
+Accuracy is useful because it allows us to measure the total number of predictions a model gets right, including both **_True Positives_** and **_True Negatives_**. 
 
 Sticking with our same analogy, Accuracy allows us to answer:
 
@@ -91,23 +91,23 @@ $$F1-Score = 2\ \frac{Precision\ x\ Recall}{Precision + Recall}$$
 
 To demonstrate the effectiveness of F1-Score, let's plug in some numbers and compare F1-Score with a regular arithmetic average of precision and recall. 
 
-Let's assume that our model has 98% recall, and 6% precision. 
+Let's assume that the model has 98% recall, and 6% precision. 
 
-If we just take the arithmetic mean of the two, we get $\frac{0.98 + 0.06}{2} = \frac{1.04}{2} = 0.52 $
+Taking the arithmetic mean of the two obtains $\frac{0.98 + 0.06}{2} = \frac{1.04}{2} = 0.52 $
 
-However, if we plug these numbers into our F1-Score formula:
+However, using these numbers in the F1-Score formula results in:
 
 $$F1 = 2 \frac{0.98 * 0.06}{0.98 + 0.06} = 2 \frac{0.0588}{1.04} = 2(0.061152) = 0.122304$$ or 12.2%!
 
-As we can see, F1-score penalizes models heavily if it skews too hard towards either precision or recall. For this reason, F1-score is generally the  most used metric for describing the performance of a model. 
+As you can see, F1-score penalizes models heavily if it skews too hard towards either precision or recall. For this reason, F1-score is generally the  most used metric for describing the performance of a model. 
 
 ## Which Metric to Use?
 
 The metrics that are most important to a project will often be dependent on the business use case or goals for that model. This is why it's **_very important_** to understand why you're doing what you're doing, and how your model will be used in the real world! Otherwise, you may optimize your model for the wrong metric! 
 
-In general, it is worth noting that it's a good idea to calculate any and all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best peformer for each metric:
+In general, it is worth noting that it's a good idea to calculate any and all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best performer for each metric:
 
-<img src='performance-comparisons.png'>
+<img src='./images/performance-comparisons.png'>
 
 
 ## Calculating Evaluation Metrics With Confusion Matrices
@@ -115,4 +115,4 @@ In general, it is worth noting that it's a good idea to calculate any and all re
 In closing, note that we can only calculate any of the metrics discussed here if we know the **_True Positives, True Negatives, False Positives, and False Negatives_** resulting from the predictions of a model. If we have a confusion matrix, we can easily calculate **_Precision_**, **_Recall_** and **_Accuracy_**--and if we know Precision and Recall, we can easily calculate **_F1-Score_**!
 
 ## Summary
-In the following lab, we'll write functions to calculate each of these manually, as well as explore how we can use existing tooling in sklearn to quickly calculate and interpret each of these metrics. Great job!
+In the following lab, you'll write functions to calculate each of these manually, as well as explore how you can use existing tooling in sci-kit learn to quickly calculate and interpret each of these metrics.
