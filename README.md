@@ -35,7 +35,7 @@ To reuse a previous analogy of a model that predicts whether or not a person has
 
 "Out of all the times the model said someone had a disease, how many times did the patient in question actually have the disease?"
 
-Note that a high precision score can be a bit misleading.  For instance, let's say we take a model and train it to make predictions on a sample of 10,000 patients. This model predicts that 6000 patients have the disease, when in reality, only 5500 have the disease.  This model would have a precision of 91.6%.  Then, we create another model. This model flips a coin, and classifies the patient as sick if the coin lands on heads.  Now, let's assume we create a second model that only predicts that a person is sick when it's incredibly obvious.  Out of 10,000 patients, this model only predicts that 5 people in the entire population are sick.  However, each of those 5 times, it is correct.  Model 2 would have a precision score of 100%, even though it missed 5,495 cases where the patient actually had the disease! In this way, more conservative models can have a high precision score, but this doesn't necessarily mean that they are the _best performing_ model!
+Note that a high precision score can be a bit misleading.  For instance, let's say we take a model and train it to make predictions on a sample of 10,000 patients. This model predicts that 6000 patients have the disease, when in reality, only 5500 have the disease.  This model would have a precision of 91.6%. Now, let's assume we create a second model that only predicts that a person is sick when it's incredibly obvious.  Out of 10,000 patients, this model only predicts that 5 people in the entire population are sick.  However, each of those 5 times, it is correct.  Model 2 would have a precision score of 100%, even though it missed 5,495 cases where the patient actually had the disease! In this way, more conservative models can have a high precision score, but this doesn't necessarily mean that they are the _best performing_ model!
 
 ### Recall
 
@@ -113,6 +113,10 @@ In general, it is worth noting that it's a good idea to calculate any and all re
 ## Calculating Evaluation Metrics With Confusion Matrices
 
 In closing, note that we can only calculate any of the metrics discussed here if we know the **_True Positives, True Negatives, False Positives, and False Negatives_** resulting from the predictions of a model. If we have a confusion matrix, we can easily calculate **_Precision_**, **_Recall_** and **_Accuracy_**--and if we know Precision and Recall, we can easily calculate **_F1-Score_**!
+
+## Classification Reports
+
+Sklearn has a built in function that will create a **_Classification Report_**. This classification report even breaks down performance by individual class predictions for your model. In the `sklearn.metrics` module is the `classification_report()` function, which takes labels and predictions and returns the . 
 
 ## Summary
 In the following lab, you'll write functions to calculate each of these manually, as well as explore how you can use existing tooling in sci-kit learn to quickly calculate and interpret each of these metrics.
