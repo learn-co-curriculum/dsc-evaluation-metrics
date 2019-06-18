@@ -116,7 +116,7 @@ In closing, note that we can only calculate any of the metrics discussed here if
 
 ## Classification Reports
 
-Sklearn has a built in function that will create a **_Classification Report_**. This classification report even breaks down performance by individual class predictions for your model. In the `sklearn.metrics` module is the `classification_report()` function, which takes labels and predictions and returns the . 
+Sklearn has a built in function that will create a **_Classification Report_**. This classification report even breaks down performance by individual class predictions for your model. In the `sklearn.metrics` module is the `classification_report()` function, which takes labels and predictions and returns the precision, recall, F1 score and support (number of occurrences of each label in `y_true`) for the results of a model. 
 
 ## Summary
 In the following lab, you'll write functions to calculate each of these manually, as well as explore how you can use existing tooling in sci-kit learn to quickly calculate and interpret each of these metrics.
