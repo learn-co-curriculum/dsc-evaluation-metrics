@@ -23,7 +23,7 @@ Let's work through these evaluation metrics and try to understand what each metr
 
 **_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the class(es) we're interested in were actually captured by the model. 
 
-<img src="./images/Precisionrecall.png">
+<img src="./images/new_EvalMatrices.png" width="600">
 
 ### Precision
 
@@ -120,3 +120,8 @@ Sklearn has a built in function that will create a **_Classification Report_**. 
 
 ## Summary
 In the following lab, you'll write functions to calculate each of these manually, as well as explore how you can use existing tooling in sci-kit learn to quickly calculate and interpret each of these metrics.
+
+
+```python
+
+```
