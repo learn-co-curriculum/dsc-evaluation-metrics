@@ -23,7 +23,7 @@ Let's work through these evaluation metrics and try to understand what each metr
 
 **_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the class(es) we're interested in were actually captured by the model. 
 
-<img src="./images/new_EvalMatrices.png" width="600">
+<img src="./images/corrected_EvalMatrices.png" width="600">
 
 ### Precision
 
