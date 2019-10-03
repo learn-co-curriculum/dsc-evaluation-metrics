@@ -9,9 +9,9 @@ In this lesson, you'll learn about common **_Evaluation Metrics_** used to quant
 
 You will be able to:
 
-* Read and interpret results using a Confusion Matrix
-* Calculate and interpret precision and recall and evaluation metrics for classification
-* Calculate and interpret accuracy and f1-score as evaluation metrics for classification
+- Read and interpret results using a Confusion Matrix
+- Calculate and interpret precision and recall and evaluation metrics for classification
+- Calculate and interpret accuracy and f1-score as evaluation metrics for classification
 
 ## Evaluation Metrics For Classification
 
