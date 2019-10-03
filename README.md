@@ -21,9 +21,9 @@ Let's work through these evaluation metrics and try to understand what each metr
 
 ## Precision and Recall
 
-**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the class(es) we're interested in were actually captured by the model. 
+**_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the classes we're interested in were actually captured by the model. 
 
-<img src="./images/corrected_EvalMatrices.png" width="600">
+<img src="./images/new_EvalMatrices.png" width="600">
 
 ### Precision
 
@@ -35,11 +35,11 @@ To reuse a previous analogy of a model that predicts whether or not a person has
 
 "Out of all the times the model said someone had a disease, how many times did the patient in question actually have the disease?"
 
-Note that a high precision score can be a bit misleading.  For instance, let's say we take a model and train it to make predictions on a sample of 10,000 patients. This model predicts that 6000 patients have the disease, when in reality, only 5500 have the disease.  This model would have a precision of 91.6%. Now, let's assume we create a second model that only predicts that a person is sick when it's incredibly obvious.  Out of 10,000 patients, this model only predicts that 5 people in the entire population are sick.  However, each of those 5 times, it is correct.  Model 2 would have a precision score of 100%, even though it missed 5,495 cases where the patient actually had the disease! In this way, more conservative models can have a high precision score, but this doesn't necessarily mean that they are the _best performing_ model!
+Note that a high precision score can be a bit misleading.  For instance, let's say we take a model and train it to make predictions on a sample of 10,000 patients. This model predicts that 6000 patients have the disease when in reality, only 5500 have the disease.  This model would have a precision of 91.6%. Now, let's assume we create a second model that only predicts that a person is sick when it's incredibly obvious.  Out of 10,000 patients, this model only predicts that 5 people in the entire population are sick.  However, each of those 5 times, it is correct.  Model 2 would have a precision score of 100%, even though it missed 5,495 cases where the patient actually had the disease! In this way, more conservative models can have a high precision score, but this doesn't necessarily mean that they are the _best performing_ model!
 
 ### Recall
 
-The following formula shows how we can use information found in a Confusion Matrix to calculate the recall of a model:
+The following formula shows how we can use the information found in a Confusion Matrix to calculate the recall of a model:
 
 $$Recall = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}}$$ 
 
@@ -47,15 +47,15 @@ Following the same disease analogy, recall allows us to ask:
 
 "Out of all the patients we saw that actually had the disease, what percentage of them did our model correctly identify as having the disease?"
 
-Note that recall can be a bit of a tricky statistic, because improving our recall score doesn't necessarily always mean a better model overall.  For example, our model could easily score 100% for recall by just classifying every single patient that walks through the door as having the disease in question. Sure, it would have many False Positives, but it would also correctly identify every single sick person as having the disease!
+Note that recall can be a bit of a tricky statistic because improving our recall score doesn't necessarily always mean a better model overall.  For example, our model could easily score 100% for recall by just classifying every single patient that walks through the door as having the disease in question. Sure, it would have many False Positives, but it would also correctly identify every single sick person as having the disease!
 
 ### The Relationship Between Precision and Recall
 
 As you may have guessed, Precision and Recall have an inverse relationship.  As our recall goes up, our precision will go down, and vice versa. If this doesn't seem intuitive, let's examine this through the lens of our disease analogy. 
 
-A doctor that is overly obsessed with recall will have a very low threshold for declaring someone as sick, because they are most worried about sick patients get by them. Their precision will be quite low, because they classify almost everyone as sick, and don't care when they're wrong--they only care about making sure that sick people are identified as sick. 
+A doctor that is overly obsessed with recall will have a very low threshold for declaring someone as sick because they are most worried about sick patients get by them. Their precision will be quite low, because they classify almost everyone as sick, and don't care when they're wrong--they only care about making sure that sick people are identified as sick. 
 
-A doctor that is overly obsessed with precision will have a very high threshold for declaring someone as sick, because they only declare someone as sick when they are absolutely sure that they will be correct if they declare a person as sick. Although their precision will be very high, their recall will be incredibly low, because a lot of people that are sick but don't meet the doctor's threshold will be incorrectly classified as healthy. 
+A doctor that is overly obsessed with precision will have a very high threshold for declaring someone as sick, because they only declare someone as sick when they are completely sure that they will be correct if they declare a person as sick. Although their precision will be very high, their recall will be incredibly low, because a lot of people that are sick but don't meet the doctor's threshold will be incorrectly classified as healthy. 
 
 ### Which Metric is Better?
 
@@ -105,7 +105,7 @@ As you can see, F1-score penalizes models heavily if it skews too hard towards e
 
 The metrics that are most important to a project will often be dependent on the business use case or goals for that model. This is why it's **_very important_** to understand why you're doing what you're doing, and how your model will be used in the real world! Otherwise, you may optimize your model for the wrong metric! 
 
-In general, it is worth noting that it's a good idea to calculate any and all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best performer for each metric:
+In general, it is worth noting that it's a good idea to calculate all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best performer for each metric:
 
 <img src='./images/performance-comparisons.png'>
 
@@ -116,12 +116,7 @@ In closing, note that we can only calculate any of the metrics discussed here if
 
 ## Classification Reports
 
-Sklearn has a built in function that will create a **_Classification Report_**. This classification report even breaks down performance by individual class predictions for your model. In the `sklearn.metrics` module is the `classification_report()` function, which takes labels and predictions and returns the precision, recall, F1 score and support (number of occurrences of each label in `y_true`) for the results of a model. 
+Sklearn has a built-in function that will create a **_Classification Report_**. This classification report even breaks down performance by individual class predictions for your model. In the `sklearn.metrics` module is the `classification_report()` function, which takes labels and predictions and returns the precision, recall, F1 score and support (number of occurrences of each label in `y_true`) for the results of a model. 
 
 ## Summary
 In the following lab, you'll write functions to calculate each of these manually, as well as explore how you can use existing tooling in sci-kit learn to quickly calculate and interpret each of these metrics.
-
-
-```python
-
-```
