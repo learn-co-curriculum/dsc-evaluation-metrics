@@ -30,7 +30,7 @@ Let's work through these evaluation metrics to understand what each metric tells
 
 The following formula shows how to use information found in a confusion matrix to calculate the precision of a model:
 
-$$ \text{Precision} = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}} $$
+ <img src="https://render.githubusercontent.com/render/math?math=\text{Precision} = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}} "> 
 
 To reuse a previous analogy of a model that predicts whether or not a person has a certain disease, precision allows us to answer the following question:
 
@@ -42,7 +42,7 @@ Note that a high precision score can be a bit misleading.  For instance, let's s
 
 The following formula shows how we can use the information found in a confusion matrix to calculate the recall of a model:
 
-$$ \text{Recall} = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}} $$ 
+ <img src="https://render.githubusercontent.com/render/math?math=\text{Recall} = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}} "> 
 
 Following the same disease analogy, recall allows us to ask:
 
@@ -73,7 +73,7 @@ The two most informative metrics that are often cited to describe the performanc
 
 **_Accuracy_** is probably the most intuitive metric. The formula for accuracy is:
 
-$$ \text{Accuracy} = \frac{\text{Number of True Positives + True Negatives}}{\text{Total Observations}} $$
+ <img src="https://render.githubusercontent.com/render/math?math=\text{Accuracy} = \frac{\text{Number of True Positives %2b True Negatives}}{\text{Total Observations}} "> 
 
 Accuracy is useful because it allows us to measure the total number of predictions a model gets right, including both **_True Positives_** and **_True Negatives_**. 
 
@@ -89,17 +89,17 @@ The F1 score is a bit more tricky, but also more informative. F1 score represent
 
 The formula for F1 score is:
 
-$$ \text{F1 score} = 2\ \frac{Precision\ x\ Recall}{Precision + Recall} $$
+ <img src="https://render.githubusercontent.com/render/math?math=\text{F1 score} = 2\ \frac{Precision\ x\ Recall}{Precision %2b Recall} "> 
 
 To demonstrate the effectiveness of F1 score, let's plug in some numbers and compare F1 score with a regular arithmetic average of precision and recall. 
 
 Let's assume that the model has 98% recall and 6% precision.  
 
-Taking the arithmetic mean of the two, we get: $ \frac{0.98 + 0.06}{2} = \frac{1.04}{2} = 0.52 $
+Taking the arithmetic mean of the two, we get:  <img src="https://render.githubusercontent.com/render/math?math=\frac{0.98 %2b 0.06}{2} = \frac{1.04}{2} = 0.52 "> 
 
 However, using these numbers in the F1 score formula results in:
 
-$$ \text{F1 score} = 2 \frac{0.98 * 0.06}{0.98 + 0.06} = 2 \frac{0.0588}{1.04} = 2(0.061152) = 0.122304$$ or 12.2%!
+ <img src="https://render.githubusercontent.com/render/math?math=\text{F1 score} = 2 \frac{0.98 * 0.06}{0.98 %2b 0.06} = 2 \frac{0.0588}{1.04} = 2(0.061152) = 0.122304"> or 12.2%!
 
 As you can see, F1 score penalizes models heavily if it skews too hard towards either precision or recall. For this reason, F1 score is generally the most used metric for describing the performance of a model. 
 
