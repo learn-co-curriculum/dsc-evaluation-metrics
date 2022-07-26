@@ -1,9 +1,8 @@
-
 # Evaluation Metrics
 
 ## Introduction
 
-In this lesson, you'll learn about common **_Evaluation Metrics_** used to quantify the performance of classifiers!
+In this lesson, you'll learn about common **_evaluation metrics_** used to quantify the performance of classifiers!
 
 ## Objectives
 
@@ -24,7 +23,7 @@ Let's work through these evaluation metrics to understand what each metric tells
 
 **_Precision_** and **_Recall_** are two of the most basic evaluation metrics available to us. **_Precision_** measures how precise the predictions are, while **_Recall_** indicates what percentage of the classes we're interested in were actually captured by the model. 
 
-<img src="./images/new_EvalMatrices.png" width="600">
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-evaluation-metrics/master/images/new_EvalMatrices.png" alt="diagram showing precision and recall using blue and orange circles and dots" width="600">
 
 ### Precision
 
@@ -109,7 +108,7 @@ The metrics that are most important to a project will often be dependent on the 
 
 In general, it is worth noting that it's a good idea to calculate all relevant metrics, when in doubt.  In most classification tasks, you don't know which model will perform best when you start. The common workflow is to train each different type of classifier, and select the best by comparing the performance of each. It's common to make tables like the one below, and highlight the best performer for each metric:
 
-<img src='./images/performance-comparisons.png'>
+<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-evaluation-metrics/master/images/performance-comparisons.png' alt="pandas dataframe showing different classification metrics as columns and different models as rows">
 
 
 ## Calculate evaluation metrics with confusion matrices
